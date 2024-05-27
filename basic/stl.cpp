@@ -21,7 +21,7 @@ void pairDetails()
 void vectorDetails()
 {
     cout << "vector is kind of container which stores same type of elements as the array dose, can increase size as we want" << endl;
-    vector<int> vector1;
+    vector<int> vector1;     // {}
     vector1.push_back(2);    //{2}
     vector1.emplace_back(3); //{2,3}
 
@@ -37,8 +37,9 @@ void vectorDetails()
 
     cout << vector3[0] << endl;    // 100
     cout << vector1.at(0) << endl; // 2
+    cout << vector4.at(5) << endl; // 20
 
-    // iterator points to the memory address and return element address
+    // points to the memory address and return element address
 
     vector<int>::iterator it = vector3.begin();           // first element
     vector<int>::iterator it1 = vector3.end();            // last + 1 element
@@ -133,7 +134,7 @@ void dequeDetails()
         cout << "list element: " << it << endl;
     }
 };
-void stackDetails() // LIFO
+void stackDetails() // LIFO O(1) constant time
 {
     stack<int> st;
     st.push(12);
@@ -148,6 +149,9 @@ void stackDetails() // LIFO
     cout << "stack is empty?: " << st.empty() << endl;
     stack<int> st2;
     st2.swap(st);
+    cout << "stack st is empty?: " << st.empty() << endl;
+
+    // cout << "after swap st last added element: " << st.top() << endl;
     cout << "size of st: " << st.size() << endl;
     cout << "size of st2: " << st2.size() << endl;
 }
@@ -167,18 +171,18 @@ void queueDetails() // FIFO
 void priorityQueueDetails()
 {
     priority_queue<int> pq;
-    pq.push(2);
-    pq.push(5);
-    pq.emplace(1);
+    pq.push(2);    //{2}
+    pq.push(5);    //{5,2}
+    pq.emplace(1); //{5,2,1}
     cout << "priority queue largest element: " << pq.top() << endl;
     pq.pop();
     cout << "priority queue largest element: " << pq.top() << endl;
 
     // Minimum heap
     priority_queue<int, vector<int>, greater<int>> pq2;
-    pq2.push(2);
-    pq2.push(5);
-    pq2.emplace(1);
+    pq2.push(2);    //{2}
+    pq2.push(5);    //{2,5}
+    pq2.emplace(1); //{1,2,5}
     cout << "priority queue small element: " << pq2.top() << endl;
     pq2.pop();
     cout << "priority queue small element: " << pq2.top() << endl;
@@ -246,8 +250,8 @@ void mapDetails()
              << "value: " << i.second << endl;
     }
 };
-void multiMapDetails(){};
-void unorderedMapDetails(){};
+void multiMapDetails() {};
+void unorderedMapDetails() {};
 // bool comp()
 // {
 //     return true;
@@ -270,7 +274,7 @@ int countSetBits(int n)
         n >>= 1;
     }
     return count;
-}
+} 
 
 int main()
 {
@@ -288,7 +292,7 @@ int main()
     // mapDetails(); // unique keys and sorted order
     // multiMapDetails();     // store sorted multiple same key
     // unorderedMapDetails(); // only store unique element, not in sorted order O(1)
-    int n = 7;
+    int n = 2;
     // cout << countSetBits(n);
     return 0;
 }

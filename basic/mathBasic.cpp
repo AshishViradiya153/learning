@@ -143,19 +143,18 @@ void gcd()
     else
         cout << "GCD is: " << num1 << endl;
 };
-void rint(int i, int n)
-{
-    if (i > n)
-        return;
-    rint(i + 1, n);
-    cout << "number: " << i << endl;
-};
+// {
+//     if (i > n)
+//         return;
+//     // rint(i + 1, n);
+//     cout << "number: " << i << endl;
+// };
 void recursion() // 4, 3, 2, 1
 {
     int num;
     cout << "Enter the number: ";
     cin >> num;
-    rint(1, num);
+    // rint(1, num);
 };
 void forSwap(int i, int arr[], int n)
 {
@@ -335,7 +334,7 @@ void isValid(string s)
 
 int main()
 {
-    // extractionOfDigit();
+    extractionOfDigit();
     // reverserNumber();
     // palindromeNumber();
     // armstrongNum();
@@ -344,7 +343,7 @@ int main()
     // recursion();
     // swapArray();
     // checkPalindrome();
-    fibonacci();
+    // fibonacci();
     // int x = 1230;
     // isPalindrome(x);
     // string str = "MCMXCIV";

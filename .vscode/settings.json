@@ -7,7 +7,8 @@
     "regex": "cpp",
     "bitset": "cpp",
     "string_view": "cpp",
-    "stacktrace": "cpp"
+    "stacktrace": "cpp",
+    "cmath": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

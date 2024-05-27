@@ -1,21 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void selectionSort(vector<int> &arr)
+void selectionSort(vector<int> &arr, int size)
 {
-    for (int i = 0; i < arr.size() - 2; i++)
+    cout << size << endl;
+    for (auto it : arr)
     {
-        int minVal = i;
-        for (int j = i + 1; j < arr.size() - 1; j++)
+        cout << it << endl;
+    }
+    for (int i = 0; i <= size - 2; i++)
+    {
+        int minValueIndex = i;
+        for (int j = i; j < size; j++)
         {
-            if (arr[minVal] > arr[j])
-            {
-                minVal = j;
-            }
+            if (arr[j] < arr[minValueIndex])
+                minValueIndex = j;
         }
-        int temp = arr[minVal];
-        arr[minVal] = arr[i];
-        arr[i] = temp;
+        swap(arr[i], arr[minValueIndex]);
+    }
+    cout << "after selection sorting" << endl;
+    for (auto it : arr)
+    {
+        cout << it << endl;
     }
 }
 void selectionSorting() // o(n^2)
@@ -46,9 +52,42 @@ void selectionSorting() // o(n^2)
         cout << "element at " << i << " is " << arr[i] << endl;
     }
 }
+void bubbleSorting(vector<int> &arr, int size)
+{
+    cout << size << endl;
+    for (auto it : arr)
+    {
+        cout << it << endl;
+    }
+    for (int i = size - 1; i >= 1; i--)
+    {
+        int didSwap = 0;
+        for (int j = 0; j < i; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                int temp = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = temp;
+                didSwap = 1;
+                // swap(arr[j], arr[j + 1]);
+            }
+        }
+        if (didSwap == 0)
+        {
+            break;
+        }
+    }
+    cout << "after selection sorting" << endl;
+    for (auto it : arr)
+    {
+        cout << it << endl;
+    }
+}
+
 void bubbleSort() // o(n^2)
 {
-    int arr[] = {1, 2, 3};
+    int arr[] = {1, 3, 5, 2, 4};
     for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
     {
         cout << "element at " << i << " is " << arr[i] << endl;
@@ -78,6 +117,7 @@ void bubbleSort() // o(n^2)
         cout << "element at " << i << " is " << arr[i] << endl;
     }
 }
+
 void insertionSort()
 {
     int arr[] = {12, 21, 10, 8, 53, 2};
@@ -152,7 +192,7 @@ void merge(vector<int> &arr, int low, int mid, int high)
     }
     for (int i = 0; i < temp.size(); i++)
     {
-        cout << "aaaaa " << temp[i] << " ";
+        cout << "temp array " << temp[i] << " ";
     }
     cout << "low " << low << high << " " << endl;
 
@@ -162,11 +202,11 @@ void merge(vector<int> &arr, int low, int mid, int high)
     }
     for (int i = 0; i < arr.size(); i++)
     {
-        cout << "aa " << arr[i] << " ";
+        cout << "aa " << arr[i] << " " << endl;
     }
     cout << endl;
 };
-void mergeSorting(vector<int> &arr, int low, int high) // {2, 4, 1, 5, 3}
+void mergeSorting(vector<int> &arr, int low, int high) // {9, 4, 7, 6, 3, 1, 5} // 0 // 6
 {
     if (high <= low)
     {
@@ -180,6 +220,10 @@ void mergeSorting(vector<int> &arr, int low, int high) // {2, 4, 1, 5, 3}
 
 int main()
 {
+    // vector<int> arr = {9, 4, 7, 6, 3, 1, 5};
+    // selectionSort(arr, arr.size());
+    // bubbleSorting(arr, arr.size());
+
     // selectionSorting();
     // bubbleSort();
     // insertionSort();
@@ -187,13 +231,13 @@ int main()
     // int target = 10;
     // twoSum(nums, target);
     vector<int> arr = {9, 4, 7, 6, 3, 1, 5};
-    int size = arr.size() - 1;
-    mergeSorting(arr, 0, size);
+    int lastIndex = arr.size() - 1; // 7 - 1 // 6
+    mergeSorting(arr, 0, lastIndex);
 
-    for (int i = 0; i < arr.size(); i++)
-    {
-        cout << arr[i] << " ";
-    }
+    // for (int i = 0; i < arr.size(); i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
 
     return 0;
 }
